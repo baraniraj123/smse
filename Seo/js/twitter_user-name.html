@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function getTwitterUser(name){
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '73d65919f8msh25c6ad3deb1571bp1b48c5jsn378aaee02ead',
+      'X-RapidAPI-Host': 'twitter135.p.rapidapi.com'
+    }
+  };
+  
+  fetch(`https://twitter135.p.rapidapi.com/UserByScreenName/?username=${name}`, options)
+    .then(response => response.json())
+    .then(response => displayTwitter(response))
+    .catch(err => console.error(err));
+
+}
+function displayTwitter(x){
+
+      
+      var t_name = x.data.user.result.legacy.name;
+      var t_followers = x.data.user.result.legacy.followers_count;
+      var t_image = x.data.user.result.legacy.profile_image_url_https;
+      var t_following = x.data.user.result.legacy.following
+      if(t_following == false){
+        t_following = 0;
+      }
+      console.log(t_name, t_followers, t_image)
+    
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,1 @@
+window.external&&window.external.AddSearchProvider("/opensearch.xml");
